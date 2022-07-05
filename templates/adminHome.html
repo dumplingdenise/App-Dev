@@ -1,0 +1,94 @@
+{% extends "adminbase2.html" %}
+{% block title %}Admin Home{% endblock %}
+
+{% block content %}
+<div style="height:100vh;" class="my-auto">
+    <h1 class="display-4 mt-5">Admin Home</h1>
+    <br>
+    <br>
+<div class="container-fluid my-auto">
+
+    <div class="row">
+
+        <div class="four col">
+            <a href="/retrieveOrders" style='text-decoration:none'>
+                <div class="counter-box colored border border-secondary"> <i class="fa fa-thumbs-o-up"></i><span class="counter">{{customer_count}}</span>
+                    <p>Orders Completed</p>
+                </div>
+            </a>
+        </div>
+        <div class="four col">
+            <a href="/retrieveCustomers" style='text-decoration:none'>
+            <div class="counter-box border border-secondary"> <i class="fa fa-group"></i><span class="counter">{{customer_count}}</span>
+                <p>Registered Customers</p>
+            </div></a>
+        </div>
+    </div>
+    <br>
+    <div class="row" >
+        <div class="four col">
+            <a href="/retrieveProducts" style='text-decoration:none'>
+            <div class="counter-box border border-secondary"> <i class="fa fa-shopping-cart"></i> <span class="counter">{{product_count}}</span>
+                <p>Available Products</p>
+            </div></a>
+        </div>
+        <div class="four col">
+            <a href="/retrievecustomerfeedback" style='text-decoration:none'>
+            <div class="counter-box border border-secondary"> <i class="fa fa-user"></i><span class="counter">{{support_count}}</span>
+                <p>Customer Feedback</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<style>
+    .container {
+    margin-top: 100px
+}
+
+.counter-box {
+    display: block;
+    background: #f6f6f6;
+    padding: 40px 20px 37px;
+    text-align: center;
+}
+
+.counter-box p {
+    margin: 5px 0 0;
+    padding: 0;
+    color: #909090;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+    color: #d2d2d2
+}
+
+.counter {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #666;
+    line-height: 28px
+}
+
+.counter-box.colored {
+    background: #0D2C54;
+}
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+    color: #fff
+}
+</style>
+
+{% endblock %}
+
+
+

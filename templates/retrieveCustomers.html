@@ -1,0 +1,100 @@
+{% extends "adminbase.html" %}
+{% block title %}Retrieve Customers - Test shelve{% endblock %}
+
+{% block content %}
+<div>
+    <div class="title">Customers Management</div>
+<div>
+    {% if count == 0 %}
+    <p>There are no customers.</p>
+    {% elif count == 1 %}
+    <p>There is <span style="color: red;">1</span> customer.</p>
+    {% else %}
+    <p>There are <span style="color: red;">{{ count }}</span> customers</p>
+    {% endif %}
+</div>
+
+<div>
+    <table class="table table-striped table-dark mt-5">
+        <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers_list %}
+        <tr>
+            <td>{{ customer.get_Customer_id() }}</td>
+            <td>{{ customer.get_first_name() }}</td>
+            <td>{{ customer.get_last_name() }}</td>
+            <td>{{ customer.get_email() }}</td>
+            <td>{{ customer.get_contact() }}</td>
+          <td><a href="/updateCustomer/{{customer.get_Customer_id()}}" class="btn btn-warning">Update</a></td>
+            <td>
+            <form action="{{url_for('delete_customer', id=customer.get_Customer_id())}}" method="POST">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{customer.get_Customer_id()}}">
+              Delete
+            </button>
+
+                <!-- The Modal -->
+    <div class="modal" id="myModal_{{customer.get_Customer_id()}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Delete Confirmation</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            Are you sure you want to delete Customer ID {{customer.get_Customer_id()}}, Name {{customer.get_first_name()}} {{customer.get_last_name()}}?
+          </div>
+
+            <!-- Modal footer -->
+          <div class="modal-footer">
+            <input type="submit" value="Delete" class="btn btn-danger">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+            </form>
+        </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+<style>
+
+        .title {
+            font-size: 50px;
+            font-weight: 500;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .title::before{
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 3px;
+          width: 25%;
+          border-radius: 5px;
+          background: #0D2C54;
+        }
+
+</style>
+{% endblock %}}

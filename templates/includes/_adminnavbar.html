@@ -1,0 +1,42 @@
+<div style="height:100vh; display:flex;" class=" bg-dark text-white">
+    <ul class="list-unstyled align-self-center container-fluid my-auto ">
+        <li class="p-1 text-center"><img class="img-fluid mb-5 rounded" src="static/Logo.png" alt="LOGO IMG"></li>
+        <li>
+            <div class="d-flex flex-row" style="">
+                <i class="bi bi-person-square my-auto col-sm-3 mx-3"></i>
+                {% if 'username' in session %}
+                    <p class ="text-left my-auto" style="color: white;">
+                    {{session['username']}}
+                    </p>
+                {% endif %}
+            </div>
+        </li>
+        <li><hr></li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+            <a class="nav-link text-white" href="/adminHome">Back</a>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+          <a class="nav-link text-white" href="retrieveOrders" >Manage Orders</a>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2 nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle text-wrap text-center mx-auto" href="#" data-bs-toggle="dropdown">Manage Products</a>
+          <ul class="dropdown-menu my-auto text-center">
+            <li><a class="dropdown-item" href="createproduct">Add New Product</a></li>
+            <li><a class="dropdown-item" href="retrieveProducts">Product List</a></li>
+          </ul>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2 nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle text-wrap text-center mx-auto" href="#" data-bs-toggle="dropdown">Manage Users</a>
+          <ul class="dropdown-menu my-auto text-center">
+            <li><a class="dropdown-item" href="/staffManagement">Retrieve Admin Users</a></li>
+            <li><a class="dropdown-item" href="/retrieveCustomers">Retrieve Customers </a></li>
+          </ul>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+          <a class="nav-link text-white" href="/retrievecustomerfeedback">Customer Feedback</a>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+          <a class="nav-link text-white" href="/logout" >Logout</a>
+        </li>
+    </ul>
+</div>

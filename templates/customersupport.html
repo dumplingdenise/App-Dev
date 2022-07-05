@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Library Loan System - Customer Support{%endblock%}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<br>
+<h1 class="text-center" style=" "> Customer Support</h1>
+<br>
+<form class="p-3 mb-2 bg-secondary text-white" method="POST" action="" style="width:400px; margin: auto; ">
+  <div class="form-group " style="margin-right:px ">
+    {{ render_field(form.name, class="form-control" ) }}
+  </div>
+  <br>
+  <div class="form-group" style="margin-right:px;">
+    {{ render_field(form.reasons, class="form-control") }}
+  </div>
+  <br>
+  <div class="form-group" style="margin-right:px;">
+    {{ render_field(form.email, class="form-control") }}
+  </div>
+  <br>
+  <div id=""prof>
+    <div class="form-group" style="margin-right:px;">
+    {{ render_field(form.description, class="form-control") }}
+    </div>
+  </div>
+  <br>
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+</form>
+{% endblock %}

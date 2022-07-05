@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+
+<div class="form-body">
+   <div class="container">
+    <div class="title">Register now</div>
+    <div>
+        <form method="POST" action="" >
+            <div class="form-row">
+                <div class="form-box form-column" id="right" >
+                    {{ render_field(form.first_name, class='form-control form-title') }}
+                </div>
+                <div class="form-box form-column" >
+                    {{ render_field(form.last_name, class='form-control form-title') }}
+                </div>
+            </div>
+
+            <div class="form-box">
+                {{ render_field(form.email, class='form-control form-title') }}
+            </div>
+            <div class="form-box">
+                {{ render_field(form.contact, class='form-control form-title') }}
+            </div>
+            <div class="form-box">
+                {{ render_field(form.password, class='form-control form-title') }}
+            </div>
+            <div class="form-box">
+                {{ render_field(form.cfmpw, class='form-control form-title') }}
+            </div>
+            <div class="form-box">
+                <input type="submit" value="Register" class="button">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</div>
+
+<style>
+    .form-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2% 0;
+    }
+
+    .container {
+      width: 450px;
+      border-radius: 10px;
+      background: #white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: auto;
+    }
+
+    .container .title {
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+    }
+
+    .title {
+        padding-top: 5px;
+    }
+
+    .container .title::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 25px;
+      border-radius: 5px;
+      background: #0D2C54;
+    }
+
+    .form-title {
+        padding: 5px;
+    }
+
+    .form-box {
+        padding-top: 5px;
+    }
+
+    .form-column {
+        float: left;
+        width: 50%;
+    }
+
+    #right{
+        padding-right: 10px;
+    }
+
+    .form-row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .button {
+        background-color: #0D2C54;
+        text-decoration: none;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+</style>
+
+{% endblock %}
+

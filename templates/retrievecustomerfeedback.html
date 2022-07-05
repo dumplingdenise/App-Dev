@@ -1,0 +1,94 @@
+{% extends "adminbase.html" %}
+{% block title %}Library Loan System - Retrieve Customers Feedback{% endblock %}
+
+{% block content %}
+<h1 class="display-4 title"  >Reply Customers Feedback</h1>
+<div>
+  {% if count == 0 %}
+  <p>There are no customer feedback.</p>
+  {% elif count == 1 %}
+  <p>There is 1 customer feedback.</p>
+  {% else %}
+  <p>There are {{ count }} customer feedback.</p>
+  {% endif %}
+</div>
+<div>
+  <table class="table table-striped table-dark mt-5">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Issue</th>
+        <th>Email</th>
+        <th>Description</th>
+        <th>Reply to Customer</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customersupport_list %}
+        <tr>
+          <td>{{ customer.get_customer_support_id() }}</td>
+          <td>{{ customer.get_name() }}</td>
+          <td>{{ customer.get_reasons() }}</td>
+          <td>{{ customer.get_email() }}</td>
+          <td>{{ customer.get_description() }}</td>
+          <td>{{ customer.get_reply() }}</td>
+          <td><a href="/updatecustomerfeedback/{{customer.get_customer_support_id()}}" class="btn btn-warning">Update</a></td>
+          <td>
+            <form action="{{url_for('delete_customersupport', id=customer.get_customer_support_id())}}" method="POST">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal_{{customer.get_customer_support_id()}}">
+                Delete
+              </button>
+
+              <!-- The Modal -->
+              <div class="modal" id="myModal_{{customer.get_customer_support_id()}}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header text-danger">
+                      <h4 class="modal-title">Delete Confirmation</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body text-danger" >
+                      Are you sure you want to delete {{customer.get_name()}}'s feedback?
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer text-dark">
+                      <input type="submit" value="Delete" class="btn btn-danger">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<style>.title {
+            font-size: 50px;
+            font-weight: 500;
+            position: relative;
+            margin-bottom: 10px;
+        }
+.title::before{
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 3px;
+          width: 52%;
+          border-radius: 5px;
+          background: #0D2C54;
+        }</style>
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>{% block title %}{% endblock %}</title>
+        <!-- Bootstrap 5.1.2 CSS -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+          integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" rel="stylesheet">
+    </head>
+
+<body class="row">
+    <div class="col-sm-2">
+        <div style="height:100vh; display:flex;" class=" bg-dark text-white">
+    <ul class="list-unstyled align-self-center container-fluid my-auto ">
+        <li class="p-1 text-center"><img class="img-fluid mb-5 rounded" src="/static/Logo.png" alt="LOGO IMG"></li>
+        <li>
+            <div class="d-flex flex-row" style="">
+                <i class="bi bi-person-square my-auto col-sm-3 mx-3"></i>
+                <p class="text-left my-auto">Name</p>
+            </div>
+        </li>
+        <li><hr></li>
+        <li><a href="/">CLICK TO GO BACK</a></li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+          <a class="nav-link text-white" href="#" data-bs-toggle="dropdown">Manage Orders</a>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2 nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle text-wrap text-center mx-auto" href="#" data-bs-toggle="dropdown">Manage Products</a>
+          <ul class="dropdown-menu my-auto text-center">
+            <li><a class="dropdown-item" href="createproduct">Add New Product</a></li>
+            <li><a class="dropdown-item" href="retrieveProducts">Product List</a></li>
+          </ul>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+          <a class="nav-link text-white" href="#" data-bs-toggle="dropdown">Manage Users</a>
+        </li>
+        <li class="my-auto text-center border border-white rounded mt-2">
+          <a class="nav-link text-white" href="#" data-bs-toggle="dropdown">Customer Feedback</a>
+        </li>
+    </ul>
+</div>
+    </div>
+
+
+    <div class="col-sm-10 container-fluid  p-5">
+    {% from "includes/_formHelper.html" import render_field %}
+
+    <h1 class="display-4">Update Product</h1>
+
+    <form method="POST" action="">
+      <div class="form-group m-3 pr-5">
+        {{ render_field(form.name, class="form-control") }}
+      </div>
+      <div class="form-group m-3 pr-5">
+        {{ render_field(form.opfile, class="form-control") }}
+      </div>
+      <div class="form-group m-3 pr-5">
+        {{ render_field(form.price, class="form-control") }}
+      </div>
+      <div class="form-group m-3 pr-5">
+        {{ render_field(form.stock, class="form-control") }}
+      </div>
+      <div class="form-group m-3 pr-5">
+        {{ render_field(form.agegroup, class="form-control") }}
+      </div>
+      <div id="prof">
+        <div class="form-group m-3 pr-5">
+          {{ render_field(form.description, class="form-control") }}
+        </div>
+      </div>
+      <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+    </form>
+    </div>
+
+    {% block scripts %}
+    <!-- Popper 1.16.1, Bootstrap 4.5.2 JavaScript -->
+<script crossorigin="anonymous" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js"></script>
+    {% endblock %}
+</body>
+</html>

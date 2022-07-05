@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Trial Codes{% endblock %}
+
+{% block content %}
+{% if 'user_created' in session %}
+<p class="text-center pt-5">Welcome to Toy Monster, {{session['user_created']}}</p>
+{% endif %}
+<div class="row">
+    <div class="col-6 my-auto">
+        <img class="img-fluid p-5" src="static/products/toy1/TOY1.jpg" style="width:600px;" alt="">
+    </div>
+    <div class="col-6 pt-5 my-auto">
+        <h1>Welcome to Toy Monster!</h1>
+        <h4>Prepare yourself for the most fun of your life!</h4>
+    </div>
+</div>
+{% endblock %}

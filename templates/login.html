@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div id="rcorners1" class="mt-4">
+        <h1 class="center">I am a..</h1>
+    <div class="row">
+        <div class="column center">
+            <a href="/customerLogin"><img class="img" src="https://t3.ftcdn.net/jpg/02/30/62/36/240_F_230623611_WdN3cVhhVuvkbE7KF5titYCrEqNHoMXA.jpg" alt="Customer icon"></a>
+            <br>
+            <p style="font-family: Georgia, serif">Customer</p>
+        </div>
+        <div class="column center">
+            <a href="/staffLogin"><img class="img" src="https://t3.ftcdn.net/jpg/02/28/53/32/240_F_228533208_mc0lCgH3hvHUI5AnOJ1c4mfy1QJxVOY8.jpg" alt="Admin icon"></a>
+            <br>
+            <p style="font-family: Georgia, serif">Admin</p>
+        </div>
+    </div>
+</div>
+
+
+<style>
+        #rcorners1 {
+          width: 50%;
+          margin-left: 25%;
+          border-radius: 15px;
+          background: #white;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          height: 300px;
+        }
+
+        .center {
+           margin: auto;
+           text-align: center;
+           padding-top: 5%;
+           width: 50%;
+        }
+
+        p {
+           padding-top: 10px;
+        }
+
+        .img {
+          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+        }
+
+        .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+        }
+
+        .row {
+          row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+</style>
+{% endblock %}

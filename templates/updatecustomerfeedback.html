@@ -1,0 +1,45 @@
+{% extends "adminbase2.html" %}
+{% block title %}Update Product{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+
+<h1 class="display-4 title ">Update Customer Support</h1>
+
+<form method="POST" action="">
+  <div class="form-group m-3 pr-5">
+    {{ render_field(form.name, class="form-control") }}
+  </div>
+  <div class="form-group m-3 pr-5">
+    {{ render_field(form.reasons, class="form-control") }}
+  </div>
+  <div class="form-group m-3 pr-5">
+    {{ render_field(form.email, class="form-control") }}
+  </div>
+  <div id="prof">
+    <div class="form-group m-3 pr-5">
+      {{ render_field(form.description, class="form-control") }}
+    </div>
+  </div>
+  <div class="form-group m-3 pr-5">
+    {{ render_field(form.reply, class="form-control") }}
+  </div>
+  <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+</form>
+<style>.title {
+            font-size: 50px;
+            font-weight: 500;
+            position: relative;
+            margin-bottom: 10px;
+        }
+.title::before{
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 3px;
+          width: 50%;
+          border-radius: 5px;
+          background: #0D2C54;
+        }</style>
+{% endblock %}

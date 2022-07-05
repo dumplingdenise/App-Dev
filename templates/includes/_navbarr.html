@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between" id="header" style="width:100vw; height:100px;">
+    <nav class="col-5 nav my-auto">
+        <a class="nav-link text-white" href="/customerHome">Home</a>
+        <a class="nav-link text-white" href="/productPage">Shop</a>
+        {% if 'user_created' in session %}
+        <a class="nav-link text-white" href="/customersupport">Customer Support</a>
+        <a class="nav-link text-white" href="/myAccount">Account</a>
+        <a class="nav-link text-white" href="/logout">Logout</a>.
+        {%else%}
+        <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">Register/Login</a>
+        <ul class="dropdown-menu dropdown my-auto text-center">
+            <li><a class="dropdown-item" href="/customerRegister">Register</a></li>
+            <li><a class="dropdown-item" href="/login">Login</a></li>
+          </ul>
+        {% endif %}
+    </nav>
+    <div class="my-auto" style="margin:auto ">
+        <img src="static/Logo.png" alt="" style="max-height:90px;" class="img-fluid">
+    </div>
+    {% if 'user_created' in session %}
+    <div class="col-5 my-auto justify-content-end d-flex" style="left:50px;">
+        <a href="/shoppingCart"><i class="bi bi-cart m-4 bi-lg p-5" style="color:white;"></i></a>
+    </div>
+    {% else %}
+     <div class="col-5 my-auto justify-content-end d-flex" style="left:50px;">
+     </div>
+    {%endif%}
+</div>
+
+<style>
+    #header{
+        background-color: #0D2C54
+    }
+</style>

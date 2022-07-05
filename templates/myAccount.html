@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Trial Codes{% endblock %}
+
+{% block content %}
+<h1 class="display-4" style="text-align: center; margin-top: 5px;">My Account</h1>
+<div id="rcorners2" style="background-color: #0D2C54;">
+    <h3 class="col title" style="color: white;">Personal Details</h3>
+    <p style="color: white;"><span style="font-weight: bold; color: white;">Name:</span> {{customer.get_first_name()+' '+customer.get_last_name()}}</p>
+    <p style="color: white;"><span style="font-weight: bold; color: white;">Email:</span> {{customer.get_email()}}</p>
+    <p style="color: white;"><span style="font-weight: bold; color: white;">Contact Number:</span> {{customer.get_contact()}}</p>
+    <form action="{{ url_for('customerEdit') }}">
+    <button class="btn btn-primary" style="width:100%"  >Edit</button>
+    </form>
+</div>
+
+<style>
+  #rcorners2 {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 20px;
+  width: 50%;
+  height: 240px;
+  margin: 5% 25%;
+}
+
+
+</style>
+{% endblock %}
